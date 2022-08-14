@@ -1,0 +1,196 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://app_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/ubuntu-regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Game.gd" type="Script" id=3]
+[ext_resource path="res://wrong.tres" type="StyleBox" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TimerDisplay" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -121.0
+margin_bottom = 68.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="QuestionDisplay" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -337.0
+margin_right = 337.0
+margin_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Welcome to Numberwall"
+align = 1
+
+[node name="ScoreDisplay" type="Label" parent="."]
+margin_right = 113.0
+margin_bottom = 68.0
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_top = 96.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 250.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Option1" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 201.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="Option2" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 205.0
+margin_right = 407.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="Option3" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 411.0
+margin_right = 612.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="Option4" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 616.0
+margin_right = 818.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="Option5" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 822.0
+margin_right = 1024.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 254.0
+margin_right = 1024.0
+margin_bottom = 504.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Option6" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 201.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="Option7" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 205.0
+margin_right = 407.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="Option8" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 411.0
+margin_right = 612.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="Option9" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 616.0
+margin_right = 818.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="Option10" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 822.0
+margin_right = 1024.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+text = "00"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="HintTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option1" to="." method="_on_Option1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option2" to="." method="_on_Option2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option3" to="." method="_on_Option3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option4" to="." method="_on_Option4_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option5" to="." method="_on_Option5_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option6" to="." method="_on_Option6_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option7" to="." method="_on_Option7_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option8" to="." method="_on_Option8_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option9" to="." method="_on_Option9_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option10" to="." method="_on_Option10_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="HintTimer" to="." method="_on_HintTimer_timeout"]
