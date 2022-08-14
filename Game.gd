@@ -31,7 +31,6 @@ onready var optBtns = [
 
 var answers = []
 var correctAnswer = 0
-var score = 0
 var translations = []
 var hintNumber = 0
 
@@ -83,14 +82,16 @@ func submitAnswer(buttonNo):
 		return
 	
 	if answers[buttonNo] == correctAnswer:
-		score += 10
+		changeScore(10)
 		NewQuestion()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timerDisplay.text = str(timer.time_left)
-	scoreDisplay.text = str(score)
 
+func changeScore(amount):
+	PlayerVariables.score += amount
+	scoreDisplay.text = str(PlayerVariables.score)
 
 func _on_Timer_timeout():
 	print_debug("That's all folks")
