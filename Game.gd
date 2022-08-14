@@ -38,7 +38,7 @@ const TIME_BEFORE_HINT_1 = 10
 const TIME_BEFORE_HINT_2 = 7
 
 const rightStyle = preload("res://correct.tres")
-
+const wrongStyle = preload("res://wrong.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -69,6 +69,7 @@ func NewQuestion():
 		answers.append(num)
 		optBtns[i].text = str(answers[i])  
 		optBtns[i].disabled = false
+		optBtns[i].set("custom_styles/pressed", wrongStyle)
 	var correctAnswerKey = randi() % len(answers)-1
 	correctAnswer = answers[correctAnswerKey]
 	# Set pressed bg colour on right answer to green
