@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://app_theme.tres" type="Theme" id=1]
+[ext_resource path="res://correct.tres" type="StyleBox" id=2]
+[ext_resource path="res://Start.gd" type="Script" id=3]
+
+[node name="Start" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 59.0
+margin_top = 65.0
+margin_right = 674.0
+margin_bottom = 133.0
+theme = ExtResource( 1 )
+text = "NumberWall"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 62.0
+margin_top = 148.0
+margin_right = 677.0
+margin_bottom = 216.0
+theme = ExtResource( 1 )
+text = "By Liam Green-Hughes"
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 79.0
+margin_top = 305.0
+margin_right = 79.0
+margin_bottom = 305.0
+
+[node name="StartBtn" type="Button" parent="."]
+margin_left = 67.0
+margin_top = 473.0
+margin_right = 213.0
+margin_bottom = 547.0
+theme = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+text = "Start"
+
+[connection signal="pressed" from="StartBtn" to="." method="_on_StartBtn_pressed"]
