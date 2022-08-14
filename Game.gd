@@ -44,6 +44,7 @@ const wrongStyle = preload("res://wrong.tres")
 func _ready():
 	randomize()
 	LoadTranslations(PlayerVariables.language)
+	PlayerVariables.score = 0
 	NewQuestion()
 	timer.start()
 	
@@ -95,9 +96,9 @@ func changeScore(amount):
 	scoreDisplay.text = str(PlayerVariables.score)
 
 func _on_Timer_timeout():
-	print_debug("That's all folks")
 	timer.stop()
 	hintTimer.stop()
+	get_tree().change_scene("res://GameOver.tscn")
 
 func _on_HintTimer_timeout():
 	# Take 5 away on first hint, another 3 on second hint
