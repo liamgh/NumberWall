@@ -43,7 +43,7 @@ const wrongStyle = preload("res://wrong.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	LoadTranslations("es-es")
+	LoadTranslations(PlayerVariables.language)
 	NewQuestion()
 	timer.start()
 	
