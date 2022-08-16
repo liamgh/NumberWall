@@ -34,8 +34,11 @@ var correctAnswer = 0
 var translations = []
 var hintNumber = 0
 
-const TIME_BEFORE_HINT_1 = 10
-const TIME_BEFORE_HINT_2 = 7
+export var time_before_hint_1 = 10
+export var time_before_hint_2 = 7
+export var score_increment = 10
+export var hint_remove_1 = 5
+export var hint_remove_2 = 3
 
 const rightStyle = preload("res://correct.tres")
 const wrongStyle = preload("res://wrong.tres")
@@ -77,14 +80,14 @@ func NewQuestion():
 	optBtns[correctAnswerKey].set("custom_styles/pressed", rightStyle)
 	questionDisplay.text = translations[correctAnswer]
 	hintNumber = 0
-	hintTimer.start(TIME_BEFORE_HINT_1)
+	hintTimer.start(time_before_hint_1)
 	
 func submitAnswer(buttonNo):
 	if timer.time_left == 0:
 		return
 	
 	if answers[buttonNo] == correctAnswer:
-		changeScore(10)
+		changeScore(score_increment)
 		NewQuestion()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -103,11 +106,11 @@ func _on_Timer_timeout():
 func _on_HintTimer_timeout():
 	# Take 5 away on first hint, another 3 on second hint
 	if hintNumber == 0:
-		hideOptions(5)
-		hintTimer.start(TIME_BEFORE_HINT_2)
+		hideOptions(hint_remove_1)
+		hintTimer.start(time_before_hint_2)
 		hintNumber = 1
 	elif hintNumber == 1:
-		hideOptions(3)
+		hideOptions(hint_remove_2)
 		hintNumber = 2
 		
 func hideOptions(howMany):
