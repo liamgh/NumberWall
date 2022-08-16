@@ -7,6 +7,7 @@ onready var startBtn = $StartBtn
 func _ready():
 	addLanguageToMenu("es-es", "Spanish")
 	addLanguageToMenu("dk-dk", "Danish")
+	addLanguageToMenu("en-gb", "English")
 	pickLanguageSelect.select(0)
 	startBtn.disabled = false
 	
