@@ -11,8 +11,8 @@ script = ExtResource( 1 )
 [node name="Result" type="Label" parent="."]
 margin_left = 34.0
 margin_top = 43.0
-margin_right = 74.0
-margin_bottom = 111.0
+margin_right = 981.0
+margin_bottom = 222.0
 theme = ExtResource( 2 )
 
 [node name="TryAgainButton" type="Button" parent="."]

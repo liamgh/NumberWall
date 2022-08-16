@@ -5,7 +5,7 @@ onready var ResultLbl = $Result
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ResultLbl.text = "Congratulations! Your score was: " + str(PlayerVariables.score)
+	ResultLbl.text = "Congratulations!\nYour score was: " + str(PlayerVariables.score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
