@@ -9,6 +9,7 @@ func _ready():
 	addLanguageToMenu("dk-dk", "Danish")
 	addLanguageToMenu("en-gb", "English")
 	addLanguageToMenu("sv-se", "Swedish")
+	addLanguageToMenu("fr-fr", "French")
 	pickLanguageSelect.select(0)
 	startBtn.disabled = false
 	
