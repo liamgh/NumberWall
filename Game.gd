@@ -31,7 +31,7 @@ onready var optBtns = [
 
 var answers = []
 var correctAnswer = 0
-var translations = []
+#var translations = []
 var hintNumber = 0
 
 export var time_before_hint_1 = 10
@@ -42,22 +42,15 @@ export var hint_remove_2 = 3
 
 const rightStyle = preload("res://correct.tres")
 const wrongStyle = preload("res://wrong.tres")
+var translations : Resource
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	LoadTranslations(PlayerVariables.language)
+	translations = load("res://Words/data-%s.tres" % PlayerVariables.language)
 	PlayerVariables.score = 0
 	NewQuestion()
 	timer.start()
-	
-func LoadTranslations(language):
-	var file = File.new()
-	file.open("res://Words/%s.txt" % language, File.READ)
-	while !file.eof_reached():
-		translations.append(file.get_line())
-	file.close()
-	
 	
 func NewQuestion():
 	answers = []
@@ -78,7 +71,7 @@ func NewQuestion():
 	correctAnswer = answers[correctAnswerKey]
 	# Set pressed bg colour on right answer to green
 	optBtns[correctAnswerKey].set("custom_styles/pressed", rightStyle)
-	questionDisplay.text = translations[correctAnswer]
+	questionDisplay.text =  translations.get_cardinal(correctAnswer)  
 	hintNumber = 0
 	hintTimer.start(time_before_hint_1)
 	
