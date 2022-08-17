@@ -9,7 +9,7 @@ func get_cardinal(number):
 	return cardinal[number]
 
 var cardinal = {
-	0: \"null\",
+   0: \"null\",
    1: \"en\",
    2: \"to\",
    3: \"tre\",
