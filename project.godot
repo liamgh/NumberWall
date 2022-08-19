@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "SavedSettings",
+"language": "GDScript",
+"path": "res://SavedSettings.gd"
+} ]
+_global_script_class_icons={
+"SavedSettings": ""
+}
+
 [application]
 
 config/name="Number Wall"

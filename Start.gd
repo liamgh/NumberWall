@@ -14,8 +14,7 @@ func _ready():
 	addLanguageToMenu("no-no", "Norweigian")
 	addLanguageToMenu("de-de", "German")
 	addLanguageToMenu("ga-ie", "Irish")
-	addLanguageToMenu("nrf-je", "Jèrriais")
-	pickLanguageSelect.select(0)
+	addLanguageToMenu("nrf-je", "Jèrriais")	
 	startBtn.disabled = false
 	
 	pass # Replace with function body.
@@ -25,18 +24,20 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func addLanguageToMenu(code, name):
+func addLanguageToMenu(language, name):
 	var i = pickLanguageSelect.get_item_count()
 	pickLanguageSelect.add_item(name)
-	pickLanguageSelect.set_item_metadata(i, code)
+	pickLanguageSelect.set_item_metadata(i, language)
+	# Select this if it was selected last time
+	if language == PlayerVariables.get_language():
+		pickLanguageSelect.select(i)
 
 
 func _on_StartBtn_pressed():
 	if pickLanguageSelect.is_anything_selected():
 		var selected = pickLanguageSelect.get_selected_items()
-		PlayerVariables.language = pickLanguageSelect.get_item_metadata(selected[0])
+		PlayerVariables.set_language(pickLanguageSelect.get_item_metadata(selected[0]))
 		get_tree().change_scene("res://Main.tscn")
-
 
 func _on_PickLanguage_item_selected(index):
 	startBtn.disabled = false
