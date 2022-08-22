@@ -85,7 +85,7 @@ func submitAnswer(buttonNo):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	timerDisplay.text = str(timer.time_left)
+	timerDisplay.text = "%2.1f" % timer.time_left
 
 func changeScore(amount):
 	PlayerVariables.score += amount
