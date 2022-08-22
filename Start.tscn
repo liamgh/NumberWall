@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://app_theme.tres" type="Theme" id=1]
 [ext_resource path="res://correct.tres" type="StyleBox" id=2]
 [ext_resource path="res://Start.gd" type="Script" id=3]
-[ext_resource path="res://Fonts/ubuntu-regular.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/FredokaOne-Question.tres" type="DynamicFont" id=4]
 [ext_resource path="res://EnableSoundBtn.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/FredokaOne-Credit.tres" type="DynamicFont" id=6]
 
 [node name="Start" type="Control"]
 anchor_right = 1.0
@@ -13,12 +14,13 @@ script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 26.0
-margin_top = 33.0
+margin_top = 13.0
 margin_right = 641.0
-margin_bottom = 101.0
+margin_bottom = 99.0
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "NumberWall"
+valign = 1
 
 [node name="Label2" type="Label" parent="."]
 margin_left = 635.0
@@ -26,8 +28,10 @@ margin_top = 27.0
 margin_right = 1250.0
 margin_bottom = 95.0
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 6 )
 text = "By Liam Green-Hughes"
+align = 2
+valign = 1
 
 [node name="PickLanguage" type="ItemList" parent="."]
 margin_left = 35.0

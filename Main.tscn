@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://app_theme.tres" type="Theme" id=1]
-[ext_resource path="res://Fonts/ubuntu-regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/FredokaOne-Question.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
 [ext_resource path="res://wrong.tres" type="StyleBox" id=4]
 [ext_resource path="res://Sound/confirmation_004.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Sound/drop_003.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Fonts/FredokaOne-NumberFace.tres" type="DynamicFont" id=7]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -23,7 +24,6 @@ margin_right = 157.0
 margin_bottom = 69.0
 size_flags_vertical = 1
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
 text = "00"
 valign = 1
 
@@ -50,7 +50,6 @@ margin_bottom = 69.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
 text = "00"
 align = 2
 valign = 1
@@ -74,7 +73,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
@@ -85,7 +84,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
@@ -96,7 +95,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
@@ -107,7 +106,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
@@ -118,7 +117,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
@@ -136,7 +135,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
@@ -147,7 +146,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
@@ -158,7 +157,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
@@ -169,7 +168,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
@@ -180,7 +179,7 @@ margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 4 )
 text = "00"
 
