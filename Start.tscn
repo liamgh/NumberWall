@@ -45,6 +45,7 @@ focus_next = NodePath("../StartBtn")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
+custom_styles/selected = ExtResource( 2 )
 max_columns = 2
 same_column_width = true
 

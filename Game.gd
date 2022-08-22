@@ -46,14 +46,23 @@ const rightStyle = preload("res://correct.tres")
 const wrongStyle = preload("res://wrong.tres")
 var translations : Resource
 
+var kbNavEnabled : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	optBtns[0].grab_focus()
+	
 	translations = load("res://Words/data-%s.tres" % PlayerVariables.get_language())
 	PlayerVariables.score = 0
 	NewQuestion()
 	timer.start()
+	
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.scancode != KEY_ENTER:
+			if !kbNavEnabled:
+				kbNavEnabled = true;
+				optBtns[0].grab_focus()
 	
 func NewQuestion():
 	answers = []
