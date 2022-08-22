@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://app_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/ubuntu-regular.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
 [ext_resource path="res://wrong.tres" type="StyleBox" id=4]
+[ext_resource path="res://Sound/confirmation_004.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sound/drop_003.ogg" type="AudioStream" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -186,6 +188,12 @@ text = "00"
 wait_time = 60.0
 
 [node name="HintTimer" type="Timer" parent="."]
+
+[node name="CorrectNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="WrongNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Option1" to="." method="_on_Option1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Option2" to="." method="_on_Option2_pressed"]

@@ -6,7 +6,9 @@ extends Node
 
 export var file_name = "user://settings.tres"
 export var score = 0
+export var AudioEnabled : bool = false
 var savedSettings : SavedSettings
+
 
 func _init():
 	# Load up the saved settings if they exist

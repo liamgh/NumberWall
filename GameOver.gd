@@ -1,11 +1,14 @@
 extends Control
 
 onready var ResultLbl = $Result
+onready var gameOverNoise = $GameOverNoise
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# compare high score
+	if PlayerVariables.AudioEnabled:
+		gameOverNoise.play()
 	if (PlayerVariables.is_high_score()):
 		ResultLbl.text = "Congratulations!\nA new high score of %d!" % PlayerVariables.score
 		if PlayerVariables.get_high_score() > 0:

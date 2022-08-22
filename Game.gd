@@ -11,6 +11,9 @@
 
 extends Control
 
+onready var correctNoise = $CorrectNoise
+onready var wrongNoise = $WrongNoise
+
 onready var timer = $Timer
 onready var hintTimer = $HintTimer
 onready var timerDisplay = $TimerDisplay
@@ -31,7 +34,6 @@ onready var optBtns = [
 
 var answers = []
 var correctAnswer = 0
-#var translations = []
 var hintNumber = 0
 
 export var time_before_hint_1 = 10
@@ -80,12 +82,18 @@ func submitAnswer(buttonNo):
 		return
 	
 	if answers[buttonNo] == correctAnswer:
+		if PlayerVariables.AudioEnabled:
+			correctNoise.play()
 		changeScore(score_increment)
 		NewQuestion()
+	elif PlayerVariables.AudioEnabled:
+		wrongNoise.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timerDisplay.text = "%2.1f" % timer.time_left
+	
+	
 
 func changeScore(amount):
 	PlayerVariables.score += amount
