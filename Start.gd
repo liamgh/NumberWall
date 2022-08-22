@@ -5,24 +5,19 @@ onready var startBtn = $StartBtn
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	addLanguageToMenu("es-es", "Spanish")
 	addLanguageToMenu("dk-dk", "Danish")
 	addLanguageToMenu("en-gb", "English")
-	addLanguageToMenu("sv-se", "Swedish")
 	addLanguageToMenu("fr-fr", "French")
-	addLanguageToMenu("gv-im", "Manx")
-	addLanguageToMenu("no-no", "Norweigian")
 	addLanguageToMenu("de-de", "German")
 	addLanguageToMenu("ga-ie", "Irish")
 	addLanguageToMenu("nrf-je", "Jèrriais")	
-	startBtn.disabled = false
+	addLanguageToMenu("gv-im", "Manx")
+	addLanguageToMenu("no-no", "Norweigian")
+	addLanguageToMenu("es-es", "Spanish")
+	addLanguageToMenu("sv-se", "Swedish")
 	
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	startBtn.disabled = false
+	pickLanguageSelect.grab_focus()
 
 func addLanguageToMenu(language, name):
 	var i = pickLanguageSelect.get_item_count()

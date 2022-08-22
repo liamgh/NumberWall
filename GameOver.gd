@@ -2,6 +2,7 @@ extends Control
 
 onready var ResultLbl = $Result
 onready var gameOverNoise = $GameOverNoise
+onready var tryAgainBtn = $TryAgainButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +17,7 @@ func _ready():
 		PlayerVariables.set_high_score()
 	else:
 		ResultLbl.text = "Congratulations!\nYour score was: %d" % PlayerVariables.score
+	tryAgainBtn.grab_focus()
 
 func _on_TryAgainButton_pressed():
 	get_tree().change_scene("res://Main.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://app_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/FredokaOne-Question.tres" type="DynamicFont" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sound/confirmation_004.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Sound/drop_003.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Fonts/FredokaOne-NumberFace.tres" type="DynamicFont" id=7]
+[ext_resource path="res://focus.tres" type="StyleBox" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -70,55 +71,90 @@ alignment = 1
 [node name="Option1" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_right = 244.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option5")
+focus_neighbour_right = NodePath("../Option2")
+focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option6")
+focus_next = NodePath("../Option2")
+focus_previous = NodePath("../../HBoxContainer2/Option10")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option2" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 248.0
 margin_right = 493.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option1")
+focus_neighbour_right = NodePath("../Option3")
+focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option7")
+focus_next = NodePath("../Option3")
+focus_previous = NodePath("../Option1")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option3" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 497.0
 margin_right = 742.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option2")
+focus_neighbour_right = NodePath("../Option4")
+focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option8")
+focus_next = NodePath("../Option4")
+focus_previous = NodePath("../Option2")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option4" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 746.0
 margin_right = 991.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option3")
+focus_neighbour_right = NodePath("../Option5")
+focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option9")
+focus_next = NodePath("../Option5")
+focus_previous = NodePath("../Option3")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option5" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 995.0
 margin_right = 1240.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option4")
+focus_neighbour_right = NodePath("../Option1")
+focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option10")
+focus_next = NodePath("../../HBoxContainer2/Option6")
+focus_previous = NodePath("../Option4")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
@@ -132,55 +168,90 @@ size_flags_vertical = 3
 [node name="Option6" type="Button" parent="VBoxContainer/HBoxContainer2"]
 margin_right = 244.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option10")
+focus_neighbour_top = NodePath("../../HBoxContainer/Option1")
+focus_neighbour_right = NodePath("../Option7")
+focus_next = NodePath("../Option7")
+focus_previous = NodePath("../../HBoxContainer/Option5")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option7" type="Button" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 248.0
 margin_right = 493.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option6")
+focus_neighbour_top = NodePath("../../HBoxContainer/Option2")
+focus_neighbour_right = NodePath("../Option8")
+focus_next = NodePath("../Option8")
+focus_previous = NodePath("../Option6")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option8" type="Button" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 497.0
 margin_right = 742.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option7")
+focus_neighbour_top = NodePath("../../HBoxContainer/Option3")
+focus_neighbour_right = NodePath("../Option9")
+focus_next = NodePath("../Option9")
+focus_previous = NodePath("../Option7")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option9" type="Button" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 746.0
 margin_right = 991.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option8")
+focus_neighbour_top = NodePath("../../HBoxContainer/Option4")
+focus_neighbour_right = NodePath("../Option10")
+focus_next = NodePath("../Option10")
+focus_previous = NodePath("../Option8")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option10" type="Button" parent="VBoxContainer/HBoxContainer2"]
 margin_left = 995.0
 margin_right = 1240.0
 margin_bottom = 293.0
+focus_neighbour_left = NodePath("../Option9")
+focus_neighbour_top = NodePath("../../HBoxContainer/Option5")
+focus_neighbour_right = NodePath("../Option6")
+focus_next = NodePath("../../HBoxContainer/Option1")
+focus_previous = NodePath("../Option9")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Timer" type="Timer" parent="."]

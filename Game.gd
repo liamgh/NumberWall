@@ -49,6 +49,7 @@ var translations : Resource
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	optBtns[0].grab_focus()
 	translations = load("res://Words/data-%s.tres" % PlayerVariables.get_language())
 	PlayerVariables.score = 0
 	NewQuestion()
