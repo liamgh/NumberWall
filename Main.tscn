@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://app_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/FredokaOne-Question.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=3]
-[ext_resource path="res://wrong.tres" type="StyleBox" id=4]
 [ext_resource path="res://Sound/confirmation_004.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Sound/drop_003.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Fonts/FredokaOne-NumberFace.tres" type="DynamicFont" id=7]
-[ext_resource path="res://focus.tres" type="StyleBox" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -80,9 +78,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option2" type="Button" parent="VBoxContainer/HBoxContainer"]
@@ -98,9 +93,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option3" type="Button" parent="VBoxContainer/HBoxContainer"]
@@ -116,9 +108,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option4" type="Button" parent="VBoxContainer/HBoxContainer"]
@@ -134,9 +123,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option5" type="Button" parent="VBoxContainer/HBoxContainer"]
@@ -152,9 +138,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
@@ -177,9 +160,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option7" type="Button" parent="VBoxContainer/HBoxContainer2"]
@@ -195,9 +175,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option8" type="Button" parent="VBoxContainer/HBoxContainer2"]
@@ -213,9 +190,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option9" type="Button" parent="VBoxContainer/HBoxContainer2"]
@@ -231,9 +205,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Option10" type="Button" parent="VBoxContainer/HBoxContainer2"]
@@ -249,15 +220,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 custom_fonts/font = ExtResource( 7 )
-custom_styles/hover = ExtResource( 8 )
-custom_styles/pressed = ExtResource( 4 )
-custom_styles/focus = ExtResource( 8 )
 text = "00"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0
 
 [node name="HintTimer" type="Timer" parent="."]
+
+[node name="ReadAnswerTimer" type="Timer" parent="."]
 
 [node name="CorrectNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
@@ -277,3 +247,4 @@ stream = ExtResource( 6 )
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option10" to="." method="_on_Option10_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="HintTimer" to="." method="_on_HintTimer_timeout"]
+[connection signal="timeout" from="ReadAnswerTimer" to="." method="_on_ReadAnswerTimer_timeout"]
