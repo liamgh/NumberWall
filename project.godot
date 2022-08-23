@@ -24,6 +24,7 @@ config/name="Number Wall"
 config/description="Learn nimbers in various languages"
 run/main_scene="res://Start.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
