@@ -18,10 +18,7 @@ const focusStyle : Resource = preload("res://focus.tres")
 var correctAnswerBtn : int = -1
 var kbNavEnabled : bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+# Try to detect moving from mouse/touch to keyboard/gamepad mode and vice versa
 func _input(event):			
 	if (event is InputEventKey or event is InputEventJoypadMotion or event is InputEventJoypadButton) and !kbNavEnabled:
 		kbNavEnabled = true;
