@@ -14,43 +14,32 @@ extends Control
 onready var correctNoise = $CorrectNoise
 onready var wrongNoise = $WrongNoise
 
-onready var timer = $Timer
-onready var hintTimer = $HintTimer
-onready var readAnswerTimer = $ReadAnswerTimer
+onready var timer : Timer = $Timer
+onready var hintTimer : Timer = $HintTimer
+onready var readAnswerTimer : Timer = $ReadAnswerTimer
 onready var timerDisplay = $TimerDisplay
 onready var questionDisplay = $QuestionDisplay
 onready var scoreDisplay = $ScoreDisplay
 
-onready var optBtns = [
-	$VBoxContainer/HBoxContainer/Option1,
-	$VBoxContainer/HBoxContainer/Option2, 
-	$VBoxContainer/HBoxContainer/Option3,  
-	$VBoxContainer/HBoxContainer/Option4,  
-	$VBoxContainer/HBoxContainer/Option5,  
-	$VBoxContainer/HBoxContainer2/Option6,  
-	$VBoxContainer/HBoxContainer2/Option7,  
-	$VBoxContainer/HBoxContainer2/Option8,  
-	$VBoxContainer/HBoxContainer2/Option9,  
-	$VBoxContainer/HBoxContainer2/Option10]
-
 var answers = []
-var correctAnswer = 0
-var hintNumber = 0
+var correctAnswerBtn : int  = 0 
+var hintNumber : int = 0
 
-export var time_before_hint_1 = 10
-export var time_before_hint_2 = 7
-export var score_increment = 10
-export var hint_remove_1 = 5
-export var hint_remove_2 = 3
-
-const rightStyle = preload("res://correct.tres")
-const wrongStyle = preload("res://wrong.tres")
-const focusStyle = preload("res://focus.tres")
+export var time_before_hint_1 : int = 10
+export var time_before_hint_2 : int = 7
+export var score_increment : int = 10
+export var hint_remove_1 : int = 5
+export var hint_remove_2 : int  = 3
 
 var translations : Resource
 
-var kbNavEnabled : bool = false
 var waitingForNewQuestion : bool = false
+
+signal correct_answer
+signal wrong_answer
+signal new_question
+signal hide_options
+signal reset_grid
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -61,23 +50,10 @@ func _ready():
 	NewQuestion()
 	timer.start()
 	
-func _input(event):
-	if (event is InputEventKey or event is InputEventJoypadMotion or event is InputEventJoypadButton) and !kbNavEnabled:
-		kbNavEnabled = true;
-		optBtns[0].grab_focus()
-		for i in range(0, len(optBtns)):
-			optBtns[i].set("custom_styles/focus", focusStyle)
-			optBtns[i].set("custom_styles/hover", StyleBoxEmpty)
-				
-	if (event is InputEventScreenTouch or event is InputEventMouseMotion)  and kbNavEnabled:
-		kbNavEnabled = false
-		for i in range(0, len(optBtns)):
-			optBtns[i].set("custom_styles/focus", StyleBoxEmpty)
-			optBtns[i].set("custom_styles/hover", focusStyle)
-	
-func NewQuestion():
+		
+func NewQuestion():	
 	answers = []
-	for i in range(0, len(optBtns)):
+	for i in range(0, 10):
 		var num = 0
 		var unique = false
 		while !unique:
@@ -87,13 +63,9 @@ func NewQuestion():
 			else:
 				unique = true
 		answers.append(num)
-		optBtns[i].text = str(answers[i])  
-		optBtns[i].disabled = false
-		optBtns[i].set("custom_styles/hover", focusStyle)
-		
-	var correctAnswerKey = randi() % len(answers)-1
-	correctAnswer = answers[correctAnswerKey]
-	optBtns[correctAnswerKey].set("custom_styles/pressed", rightStyle)
+	correctAnswerBtn = randi() % len(answers)
+	emit_signal("new_question", correctAnswerBtn, answers)
+	var correctAnswer = answers[correctAnswerBtn]
 	
 	# Set pressed bg colour on right answer to green
 	questionDisplay.text =  translations.get_cardinal(correctAnswer)  
@@ -102,34 +74,33 @@ func NewQuestion():
 	hintTimer.start(time_before_hint_1)
 	
 func submitAnswer(buttonNo):
-	if timer.time_left == 0 or waitingForNewQuestion:
+	if timer.time_left == 0 or readAnswerTimer.time_left != 0:
 		return
 	
-	if answers[buttonNo] == correctAnswer:	
+	if buttonNo == correctAnswerBtn:	
+		emit_signal("correct_answer", buttonNo)
 		if PlayerVariables.AudioEnabled:
 			correctNoise.play()
 		changeScore(score_increment)
-		waitBeforeNewQuestion()
-	elif PlayerVariables.AudioEnabled:
-		wrongNoise.play()
-
-func waitBeforeNewQuestion():
-	for i in range(0, len(optBtns)):
-		if answers[i] != correctAnswer:
-			optBtns[i].disabled = true
-	waitingForNewQuestion = true
-	readAnswerTimer.start()
+		waitingForNewQuestion = true
+		readAnswerTimer.start(1)
+	else:
+		emit_signal("wrong_answer", buttonNo)
+		if PlayerVariables.AudioEnabled:
+			wrongNoise.play()
+	readAnswerTimer.start(0.5)
 
 func _on_ReadAnswerTimer_timeout():
+	
 	readAnswerTimer.stop()
-	NewQuestion()	
+	emit_signal("reset_grid")
+	if waitingForNewQuestion:
+		NewQuestion()	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	timerDisplay.text = "%2.1f" % timer.time_left
 	
-	
-
 func changeScore(amount):
 	PlayerVariables.score += amount
 	scoreDisplay.text = str(PlayerVariables.score)
@@ -142,23 +113,14 @@ func _on_Timer_timeout():
 func _on_HintTimer_timeout():
 	# Take 5 away on first hint, another 3 on second hint
 	if hintNumber == 0:
-		hideOptions(hint_remove_1)
+		emit_signal("hide_options", hint_remove_1)
 		hintTimer.start(time_before_hint_2)
 		hintNumber = 1
 	elif hintNumber == 1:
-		hideOptions(hint_remove_2)
+		emit_signal("hide_options", hint_remove_2)
 		hintNumber = 2
-		
-func hideOptions(howMany):
-	var numHidden = 0
-	while numHidden != howMany:
-		var i = randi() % len(optBtns)-1
-		if answers[i] != correctAnswer and !optBtns[i].disabled:
-			numHidden = numHidden + 1
-			optBtns[i].text = ""
-			optBtns[i].disabled = true
+
 	
-# TODO change to button_down, on button_up change colour back
 func _on_Option1_pressed():
 	submitAnswer(0)
 	
@@ -188,4 +150,5 @@ func _on_Option9_pressed():
 
 func _on_Option10_pressed():
 	submitAnswer(9)
+
 

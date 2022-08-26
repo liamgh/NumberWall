@@ -1,20 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://app_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/FredokaOne-NumberFace.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/FredokaOne-Question.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Game.gd" type="Script" id=3]
-[ext_resource path="res://Sound/confirmation_004.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Sound/drop_003.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Fonts/FredokaOne-NumberFace.tres" type="DynamicFont" id=7]
+[ext_resource path="res://NumberGrid.gd" type="Script" id=3]
+[ext_resource path="res://Game.gd" type="Script" id=4]
+[ext_resource path="res://app_theme.tres" type="Theme" id=5]
+[ext_resource path="res://Sound/confirmation_004.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sound/drop_003.ogg" type="AudioStream" id=7]
 
-[node name="Control" type="Control"]
+[node name="Game" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 20.0
 margin_bottom = 20.0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="ScoreDisplay" type="Label" parent="."]
 margin_left = 7.0
@@ -22,7 +23,7 @@ margin_top = 1.0
 margin_right = 157.0
 margin_bottom = 69.0
 size_flags_vertical = 1
-theme = ExtResource( 1 )
+theme = ExtResource( 5 )
 text = "00"
 valign = 1
 
@@ -34,7 +35,7 @@ margin_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
-theme = ExtResource( 1 )
+theme = ExtResource( 5 )
 custom_fonts/font = ExtResource( 2 )
 text = "Welcome to Numberwall"
 align = 1
@@ -48,99 +49,100 @@ margin_right = 1215.0
 margin_bottom = 69.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme = ExtResource( 1 )
+theme = ExtResource( 5 )
 text = "00"
 align = 2
 valign = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="NumberGrid" type="VBoxContainer" parent="."]
 margin_top = 96.0
 margin_right = 1240.0
 margin_bottom = 686.0
 alignment = 1
+script = ExtResource( 3 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Row1" type="HBoxContainer" parent="NumberGrid"]
 margin_right = 1240.0
 margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Option1" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Option1" type="Button" parent="NumberGrid/Row1"]
 margin_right = 244.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option5")
 focus_neighbour_right = NodePath("../Option2")
-focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option6")
+focus_neighbour_bottom = NodePath("../../Row2/Option6")
 focus_next = NodePath("../Option2")
-focus_previous = NodePath("../../HBoxContainer2/Option10")
+focus_previous = NodePath("../../Row2/Option10")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
-[node name="Option2" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Option2" type="Button" parent="NumberGrid/Row1"]
 margin_left = 248.0
 margin_right = 493.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option1")
 focus_neighbour_right = NodePath("../Option3")
-focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option7")
+focus_neighbour_bottom = NodePath("../../Row2/Option7")
 focus_next = NodePath("../Option3")
 focus_previous = NodePath("../Option1")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
-[node name="Option3" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Option3" type="Button" parent="NumberGrid/Row1"]
 margin_left = 497.0
 margin_right = 742.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option2")
 focus_neighbour_right = NodePath("../Option4")
-focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option8")
+focus_neighbour_bottom = NodePath("../../Row2/Option8")
 focus_next = NodePath("../Option4")
 focus_previous = NodePath("../Option2")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
-[node name="Option4" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Option4" type="Button" parent="NumberGrid/Row1"]
 margin_left = 746.0
 margin_right = 991.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option3")
 focus_neighbour_right = NodePath("../Option5")
-focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option9")
+focus_neighbour_bottom = NodePath("../../Row2/Option9")
 focus_next = NodePath("../Option5")
 focus_previous = NodePath("../Option3")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
-[node name="Option5" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Option5" type="Button" parent="NumberGrid/Row1"]
 margin_left = 995.0
 margin_right = 1240.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option4")
 focus_neighbour_right = NodePath("../Option1")
-focus_neighbour_bottom = NodePath("../../HBoxContainer2/Option10")
-focus_next = NodePath("../../HBoxContainer2/Option6")
+focus_neighbour_bottom = NodePath("../../Row2/Option10")
+focus_next = NodePath("../../Row2/Option6")
 focus_previous = NodePath("../Option4")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Row2" type="HBoxContainer" parent="NumberGrid"]
 margin_top = 297.0
 margin_right = 1240.0
 margin_bottom = 590.0
@@ -148,78 +150,78 @@ grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Option6" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="Option6" type="Button" parent="NumberGrid/Row2"]
 margin_right = 244.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option10")
-focus_neighbour_top = NodePath("../../HBoxContainer/Option1")
+focus_neighbour_top = NodePath("../../Row1/Option1")
 focus_neighbour_right = NodePath("../Option7")
 focus_next = NodePath("../Option7")
-focus_previous = NodePath("../../HBoxContainer/Option5")
+focus_previous = NodePath("../../Row1/Option5")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
-[node name="Option7" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="Option7" type="Button" parent="NumberGrid/Row2"]
 margin_left = 248.0
 margin_right = 493.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option6")
-focus_neighbour_top = NodePath("../../HBoxContainer/Option2")
+focus_neighbour_top = NodePath("../../Row1/Option2")
 focus_neighbour_right = NodePath("../Option8")
 focus_next = NodePath("../Option8")
 focus_previous = NodePath("../Option6")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
-[node name="Option8" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="Option8" type="Button" parent="NumberGrid/Row2"]
 margin_left = 497.0
 margin_right = 742.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option7")
-focus_neighbour_top = NodePath("../../HBoxContainer/Option3")
+focus_neighbour_top = NodePath("../../Row1/Option3")
 focus_neighbour_right = NodePath("../Option9")
 focus_next = NodePath("../Option9")
 focus_previous = NodePath("../Option7")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
-[node name="Option9" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="Option9" type="Button" parent="NumberGrid/Row2"]
 margin_left = 746.0
 margin_right = 991.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option8")
-focus_neighbour_top = NodePath("../../HBoxContainer/Option4")
+focus_neighbour_top = NodePath("../../Row1/Option4")
 focus_neighbour_right = NodePath("../Option10")
 focus_next = NodePath("../Option10")
 focus_previous = NodePath("../Option8")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
-[node name="Option10" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="Option10" type="Button" parent="NumberGrid/Row2"]
 margin_left = 995.0
 margin_right = 1240.0
 margin_bottom = 293.0
 focus_neighbour_left = NodePath("../Option9")
-focus_neighbour_top = NodePath("../../HBoxContainer/Option5")
+focus_neighbour_top = NodePath("../../Row1/Option5")
 focus_neighbour_right = NodePath("../Option6")
-focus_next = NodePath("../../HBoxContainer/Option1")
+focus_next = NodePath("../../Row1/Option1")
 focus_previous = NodePath("../Option9")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 1 )
-custom_fonts/font = ExtResource( 7 )
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 1 )
 text = "00"
 
 [node name="Timer" type="Timer" parent="."]
@@ -230,21 +232,26 @@ wait_time = 60.0
 [node name="ReadAnswerTimer" type="Timer" parent="."]
 
 [node name="CorrectNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-
-[node name="WrongNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option1" to="." method="_on_Option1_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option2" to="." method="_on_Option2_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option3" to="." method="_on_Option3_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option4" to="." method="_on_Option4_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Option5" to="." method="_on_Option5_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option6" to="." method="_on_Option6_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option7" to="." method="_on_Option7_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option8" to="." method="_on_Option8_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option9" to="." method="_on_Option9_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Option10" to="." method="_on_Option10_pressed"]
+[node name="WrongNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[connection signal="correct_answer" from="." to="NumberGrid" method="_on_Game_correct_answer"]
+[connection signal="hide_options" from="." to="NumberGrid" method="_on_Game_hide_options"]
+[connection signal="new_question" from="." to="NumberGrid" method="_on_Game_new_question"]
+[connection signal="reset_grid" from="." to="NumberGrid" method="_on_Game_reset_grid"]
+[connection signal="wrong_answer" from="." to="NumberGrid" method="_on_Game_wrong_answer"]
+[connection signal="pressed" from="NumberGrid/Row1/Option1" to="." method="_on_Option1_pressed"]
+[connection signal="pressed" from="NumberGrid/Row1/Option2" to="." method="_on_Option2_pressed"]
+[connection signal="pressed" from="NumberGrid/Row1/Option3" to="." method="_on_Option3_pressed"]
+[connection signal="pressed" from="NumberGrid/Row1/Option4" to="." method="_on_Option4_pressed"]
+[connection signal="pressed" from="NumberGrid/Row1/Option5" to="." method="_on_Option5_pressed"]
+[connection signal="pressed" from="NumberGrid/Row2/Option6" to="." method="_on_Option6_pressed"]
+[connection signal="pressed" from="NumberGrid/Row2/Option7" to="." method="_on_Option7_pressed"]
+[connection signal="pressed" from="NumberGrid/Row2/Option8" to="." method="_on_Option8_pressed"]
+[connection signal="pressed" from="NumberGrid/Row2/Option9" to="." method="_on_Option9_pressed"]
+[connection signal="pressed" from="NumberGrid/Row2/Option10" to="." method="_on_Option10_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="HintTimer" to="." method="_on_HintTimer_timeout"]
 [connection signal="timeout" from="ReadAnswerTimer" to="." method="_on_ReadAnswerTimer_timeout"]

@@ -20,7 +20,8 @@ func _ready():
 	tryAgainBtn.grab_focus()
 
 func _on_TryAgainButton_pressed():
-	get_tree().change_scene("res://Main.tscn")
+	get_tree().change_scene("res://Game.tscn")
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://Start.tscn")
+

@@ -32,7 +32,7 @@ func _on_StartBtn_pressed():
 	if pickLanguageSelect.is_anything_selected():
 		var selected = pickLanguageSelect.get_selected_items()
 		PlayerVariables.set_language(pickLanguageSelect.get_item_metadata(selected[0]))
-		get_tree().change_scene("res://Main.tscn")
+		get_tree().change_scene("res://Game.tscn")
 
 func _on_PickLanguage_item_selected(index):
 	startBtn.disabled = false
