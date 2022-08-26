@@ -67,7 +67,7 @@ func reset_grid_styles():
 func _on_Game_hide_options(howMany):
 	var numHidden = 0
 	while numHidden != howMany:
-		var i = randi() % len(optBtns)-1
+		var i = randi() % len(optBtns)
 		if i != correctAnswerBtn and !optBtns[i].disabled:
 			numHidden = numHidden + 1
 			optBtns[i].text = ""
