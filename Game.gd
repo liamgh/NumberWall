@@ -66,40 +66,43 @@ func NewQuestion():
 		answers.append(num)
 	correctAnswerBtn = randi() % len(answers)
 	emit_signal("new_question", correctAnswerBtn, answers)
-	var correctAnswer = answers[correctAnswerBtn]
-	
-	# Set pressed bg colour on right answer to green
+	var correctAnswer = answers[correctAnswerBtn]	
 	questionDisplay.text =  translations.get_cardinal(correctAnswer)  
 	hintNumber = 0
 	waitingForNewQuestion = false
+	hintTimer.set_paused(false)	
 	hintTimer.start(time_before_hint_1)
 
 # Checks if button clicked is the correct answer	
 func submitAnswer(buttonNo):
+	hintTimer.set_paused(true)	
 	if timer.time_left == 0 or readAnswerTimer.time_left != 0:
 		return
 	
-	if buttonNo == correctAnswerBtn:	
+	if buttonNo == correctAnswerBtn:
 		emit_signal("correct_answer", buttonNo)
 		if PlayerVariables.AudioEnabled:
 			correctNoise.play()
 		changeScore(score_increment)
 		waitingForNewQuestion = true
+		hintTimer.stop()
 		readAnswerTimer.start(1)
 	else:
 		emit_signal("wrong_answer", buttonNo)
 		if PlayerVariables.AudioEnabled:
 			wrongNoise.play()
-	readAnswerTimer.start(0.5)
+		readAnswerTimer.start(0.5)
+		
 
 # Triggered when the timer dealy for showing red/green feedback
 # on the button expires
 func _on_ReadAnswerTimer_timeout():
-	
 	readAnswerTimer.stop()
 	emit_signal("reset_grid")
 	if waitingForNewQuestion:
-		NewQuestion()	
+		NewQuestion()
+	else:
+		hintTimer.set_paused(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Updates timer label with time left

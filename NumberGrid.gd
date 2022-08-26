@@ -54,7 +54,6 @@ func _on_Game_new_question(correctAnswerBtn, answers):
 	reset_grid_styles()	
 
 func reset_grid_styles():
-	print_debug("Reseting style")
 	for i in range(0, len(optBtns)):
 		optBtns[i].set("custom_styles/normal", StyleBoxEmpty)
 		optBtns[i].set("custom_styles/hover", StyleBoxEmpty)	     
