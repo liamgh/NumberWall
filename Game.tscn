@@ -57,20 +57,21 @@ valign = 1
 [node name="NumberGrid" type="VBoxContainer" parent="."]
 margin_top = 96.0
 margin_right = 1240.0
-margin_bottom = 686.0
+margin_bottom = 661.0
+rect_clip_content = true
 alignment = 1
 script = ExtResource( 3 )
 
 [node name="Row1" type="HBoxContainer" parent="NumberGrid"]
 margin_right = 1240.0
-margin_bottom = 293.0
+margin_bottom = 280.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Option1" type="Button" parent="NumberGrid/Row1"]
 margin_right = 244.0
-margin_bottom = 293.0
+margin_bottom = 280.0
 focus_neighbour_left = NodePath("../Option5")
 focus_neighbour_right = NodePath("../Option2")
 focus_neighbour_bottom = NodePath("../../Row2/Option6")
@@ -85,7 +86,7 @@ text = "00"
 [node name="Option2" type="Button" parent="NumberGrid/Row1"]
 margin_left = 248.0
 margin_right = 493.0
-margin_bottom = 293.0
+margin_bottom = 280.0
 focus_neighbour_left = NodePath("../Option1")
 focus_neighbour_right = NodePath("../Option3")
 focus_neighbour_bottom = NodePath("../../Row2/Option7")
@@ -100,7 +101,7 @@ text = "00"
 [node name="Option3" type="Button" parent="NumberGrid/Row1"]
 margin_left = 497.0
 margin_right = 742.0
-margin_bottom = 293.0
+margin_bottom = 280.0
 focus_neighbour_left = NodePath("../Option2")
 focus_neighbour_right = NodePath("../Option4")
 focus_neighbour_bottom = NodePath("../../Row2/Option8")
@@ -115,7 +116,7 @@ text = "00"
 [node name="Option4" type="Button" parent="NumberGrid/Row1"]
 margin_left = 746.0
 margin_right = 991.0
-margin_bottom = 293.0
+margin_bottom = 280.0
 focus_neighbour_left = NodePath("../Option3")
 focus_neighbour_right = NodePath("../Option5")
 focus_neighbour_bottom = NodePath("../../Row2/Option9")
@@ -130,7 +131,7 @@ text = "00"
 [node name="Option5" type="Button" parent="NumberGrid/Row1"]
 margin_left = 995.0
 margin_right = 1240.0
-margin_bottom = 293.0
+margin_bottom = 280.0
 focus_neighbour_left = NodePath("../Option4")
 focus_neighbour_right = NodePath("../Option1")
 focus_neighbour_bottom = NodePath("../../Row2/Option10")
@@ -143,16 +144,16 @@ custom_fonts/font = ExtResource( 1 )
 text = "00"
 
 [node name="Row2" type="HBoxContainer" parent="NumberGrid"]
-margin_top = 297.0
+margin_top = 284.0
 margin_right = 1240.0
-margin_bottom = 590.0
+margin_bottom = 565.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Option6" type="Button" parent="NumberGrid/Row2"]
 margin_right = 244.0
-margin_bottom = 293.0
+margin_bottom = 281.0
 focus_neighbour_left = NodePath("../Option10")
 focus_neighbour_top = NodePath("../../Row1/Option1")
 focus_neighbour_right = NodePath("../Option7")
@@ -167,7 +168,7 @@ text = "00"
 [node name="Option7" type="Button" parent="NumberGrid/Row2"]
 margin_left = 248.0
 margin_right = 493.0
-margin_bottom = 293.0
+margin_bottom = 281.0
 focus_neighbour_left = NodePath("../Option6")
 focus_neighbour_top = NodePath("../../Row1/Option2")
 focus_neighbour_right = NodePath("../Option8")
@@ -182,7 +183,7 @@ text = "00"
 [node name="Option8" type="Button" parent="NumberGrid/Row2"]
 margin_left = 497.0
 margin_right = 742.0
-margin_bottom = 293.0
+margin_bottom = 281.0
 focus_neighbour_left = NodePath("../Option7")
 focus_neighbour_top = NodePath("../../Row1/Option3")
 focus_neighbour_right = NodePath("../Option9")
@@ -197,7 +198,7 @@ text = "00"
 [node name="Option9" type="Button" parent="NumberGrid/Row2"]
 margin_left = 746.0
 margin_right = 991.0
-margin_bottom = 293.0
+margin_bottom = 281.0
 focus_neighbour_left = NodePath("../Option8")
 focus_neighbour_top = NodePath("../../Row1/Option4")
 focus_neighbour_right = NodePath("../Option10")
@@ -212,7 +213,7 @@ text = "00"
 [node name="Option10" type="Button" parent="NumberGrid/Row2"]
 margin_left = 995.0
 margin_right = 1240.0
-margin_bottom = 293.0
+margin_bottom = 281.0
 focus_neighbour_left = NodePath("../Option9")
 focus_neighbour_top = NodePath("../../Row1/Option5")
 focus_neighbour_right = NodePath("../Option6")
