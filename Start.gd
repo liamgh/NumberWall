@@ -12,7 +12,7 @@ func _ready():
 	addLanguageToMenu("ga-ie", "Irish")
 	addLanguageToMenu("nrf-je", "Jèrriais")	
 	addLanguageToMenu("gv-im", "Manx")
-	addLanguageToMenu("no-no", "Norweigian")
+	addLanguageToMenu("no-no", "Norwegian")
 	addLanguageToMenu("es-es", "Spanish")
 	addLanguageToMenu("sv-se", "Swedish")
 	
