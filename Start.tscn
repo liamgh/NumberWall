@@ -127,4 +127,12 @@ margin_bottom = 475.0
 custom_styles/focus = ExtResource( 7 )
 text = "Swedish"
 
+[node name="CYCYBtn" type="Button" parent="LangOpts"]
+margin_left = -5.0
+margin_top = 502.0
+margin_right = 295.0
+margin_bottom = 577.0
+custom_styles/focus = ExtResource( 7 )
+text = "Welsh"
+
 [connection signal="pressed" from="EnableSoundBtn" to="EnableSoundBtn" method="_on_EnableSoundBtn_pressed"]

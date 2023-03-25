@@ -11,7 +11,8 @@ onready var buttons = {
 	"gv-im": $LangOpts/GVIMBtn,
 	"no-no": $LangOpts/NONOBtn,
 	"es-es": $LangOpts/ESESBtn,
-	"sv-se": $LangOpts/SVSEBtn
+	"sv-se": $LangOpts/SVSEBtn,
+	"cy-cy": $LangOpts/CYCYBtn
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -24,5 +25,6 @@ func _ready():
 		buttons[key].connect("pressed", self, "start_game", [key])
 
 func start_game(key):
+	print_debug(key)
 	PlayerVariables.set_language(key)
 	get_tree().change_scene("res://Game.tscn")
