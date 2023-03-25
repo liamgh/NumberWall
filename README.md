@@ -22,6 +22,7 @@ The game currently supports learning numbers in:
 - Norweigian
 - Spanish
 - Swedish
+- Welsh
 
 ## Errors, Additions, Problems?
 If you notice any errors or issues then please report the issue at:
