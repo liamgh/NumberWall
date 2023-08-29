@@ -1,2 +1,5 @@
-android/
+android/build
 export_presets.cfg
+.godot/export_credentials.cfg
+.godot/shader_cache
+.godot/editor/recent_dirs

@@ -1,7 +1,7 @@
 extends Control
 
 
-onready var buttons = {
+@onready var buttons = {
 	"dk-dk": $LangOpts/DKDKBtn,
 	"en-gb": $LangOpts/ENGBBtn,
 	"fr-fr": $LangOpts/FRFRBtn,
@@ -17,14 +17,16 @@ onready var buttons = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if OS.get_name() == "Android":
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if buttons[PlayerVariables.get_language()]:
 		buttons[PlayerVariables.get_language()].grab_focus()
 	else:
 		buttons["dk-dk"].grab_focus()
 	for key in buttons:
-		buttons[key].connect("pressed", self, "start_game", [key])
+		buttons[key].connect("pressed", Callable(self, "start_game").bind(key))
 
 func start_game(key):
 	print_debug(key)
 	PlayerVariables.set_language(key)
-	get_tree().change_scene("res://Game.tscn")
+	get_tree().change_scene_to_file("res://Game.tscn")

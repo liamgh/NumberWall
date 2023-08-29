@@ -43,3 +43,5 @@ This game was written by Liam Green-Hughes as a way to learn more about the wond
 The font is [Fredoka One](https://fonts.google.com/specimen/Fredoka+One/about), used under the Open Font Licence.
 
 The sound effects come from the [Kenney UI Sounds](https://kenney.nl/assets/ui-audio) pack and are used under CC-0.
+
+Android TV porting was made possible by [this Reddit thread](https://www.reddit.com/r/godot/comments/mj4u0v/export_to_android_tv/).

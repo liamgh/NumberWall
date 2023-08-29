@@ -4,9 +4,9 @@
 
 extends Node
 
-export var file_name = "user://settings.tres"
-export var score = 0
-export var AudioEnabled : bool = false
+@export var file_name = "user://settings.tres"
+@export var score = 0
+@export var AudioEnabled : bool = false
 var savedSettings : SavedSettings
 
 
@@ -30,7 +30,7 @@ func set_language(language):
 	
 
 func save():
-	var result = ResourceSaver.save(file_name, savedSettings)
+	var result = ResourceSaver.save(savedSettings, file_name)
 	assert(result == OK)
 
 

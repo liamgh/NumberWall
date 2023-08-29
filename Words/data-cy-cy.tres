@@ -1,6 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dpjkkt063v2id"]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id="1"]
 script/source = "# Welsh numbers
 # info from https://en.wiktionary.org/wiki/Appendix:Welsh_numbers
 
@@ -9,8 +9,6 @@ extends Resource
 func get_cardinal(number):
 	var num = cardinal[number]
 	var rng = RandomNumberGenerator.new()
-	print_debug(len(num))
-	print_debug(randi() % num.size())
 	return num[randi() % num.size()]
 
 var cardinal = {
@@ -119,4 +117,4 @@ var cardinal = {
 "
 
 [resource]
-script = SubResource( 1 )
+script = SubResource("1")

@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-onready var optBtns = [
+@onready var optBtns = [
 	$Row1/Option1,
 	$Row1/Option2, 
 	$Row1/Option3,  
@@ -11,7 +11,8 @@ onready var optBtns = [
 	$Row2/Option8,  
 	$Row2/Option9,  
 	$Row2/Option10]
-	
+
+const normalStyle : Resource = preload("res://normal.tres")	
 const rightStyle : Resource = preload("res://correct.tres")
 const wrongStyle : Resource = preload("res://wrong.tres")
 const focusStyle : Resource = preload("res://focus.tres")
@@ -30,10 +31,10 @@ func _input(event):
 		reset_grid_styles()
 
 func change_all_styles(buttonNo, style):
-	optBtns[buttonNo].set("custom_styles/normal", style)
-	optBtns[buttonNo].set("custom_styles/hover", style)
-	optBtns[buttonNo].set("custom_styles/focus", style)
-	optBtns[buttonNo].set("custom_styles/selected", style)
+	optBtns[buttonNo].set("theme_override_styles/normal", style)
+	optBtns[buttonNo].set("theme_override_styles/hover", style)
+	optBtns[buttonNo].set("theme_override_styles/focus", style)
+	optBtns[buttonNo].set("theme_override_styles/selected", style)
 
 func disable_all_but(buttonNo):
 	for i in range(0, len(optBtns)):
@@ -47,21 +48,20 @@ func _on_Game_correct_answer(buttonNo):
 func _on_Game_wrong_answer(buttonNo):
 	change_all_styles(buttonNo, wrongStyle)
 
-func _on_Game_new_question(correctAnswerBtn, answers):
-	self.correctAnswerBtn = correctAnswerBtn
+func _on_Game_new_question(correctAnswerBtnPressed, answers):
+	self.correctAnswerBtn = correctAnswerBtnPressed
 	for i in range(0, len(answers)):
 		optBtns[i].text = str(answers[i])  
 	reset_grid_styles()	
 
 func reset_grid_styles():
 	for i in range(0, len(optBtns)):
-		optBtns[i].set("custom_styles/normal", StyleBoxEmpty)
-		optBtns[i].set("custom_styles/hover", StyleBoxEmpty)	     
+		change_all_styles(i, normalStyle)    
 		optBtns[i].disabled = false
 		if (kbNavEnabled):
-			optBtns[i].set("custom_styles/focus", focusStyle)			
+			optBtns[i].set("theme_override_styles/focus", focusStyle)	
 		else:
-			optBtns[i].set("custom_styles/focus", StyleBoxEmpty)
+			optBtns[i].set("theme_override_styles/hover", focusStyle)	
 
 func _on_Game_hide_options(howMany):
 	var numHidden = 0

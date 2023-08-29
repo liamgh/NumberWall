@@ -11,25 +11,25 @@
 
 extends Control
 
-onready var correctNoise = $CorrectNoise # Noise to make when answer is coreect
-onready var wrongNoise = $WrongNoise # Noise to make when answer is wrong
+@onready var correctNoise = $CorrectNoise # Noise to make when answer is coreect
+@onready var wrongNoise = $WrongNoise # Noise to make when answer is wrong
 
-onready var timer : Timer = $Timer # timer for whole game
-onready var hintTimer : Timer = $HintTimer # timer before next hint/option reduction
-onready var readAnswerTimer : Timer = $ReadAnswerTimer # time to show red/green feedback on buttton
-onready var timerDisplay = $TimerDisplay 
-onready var questionDisplay = $QuestionDisplay
-onready var scoreDisplay = $ScoreDisplay
+@onready var timer : Timer = $Timer # timer for whole game
+@onready var hintTimer : Timer = $HintTimer # timer before next hint/option reduction
+@onready var readAnswerTimer : Timer = $ReadAnswerTimer # time to show red/green feedback on buttton
+@onready var timerDisplay = $TimerDisplay 
+@onready var questionDisplay = $QuestionDisplay
+@onready var scoreDisplay = $ScoreDisplay
 
 var answers = []
 var correctAnswerBtn : int  = 0 
 var hintNumber : int = 0
 
-export var time_before_hint_1 : int = 10 # Number of seconds before first option reduction
-export var time_before_hint_2 : int = 7 # Number of seconds before second option reduction
-export var score_increment : int = 10 # Points for a correct answer
-export var hint_remove_1 : int = 5 # How many options to remove on first hint
-export var hint_remove_2 : int  = 3 # How many options to remove on second hint
+@export var time_before_hint_1 : int = 10 # Number of seconds before first option reduction
+@export var time_before_hint_2 : int = 7 # Number of seconds before second option reduction
+@export var score_increment : int = 10 # Points for a correct answer
+@export var hint_remove_1 : int = 5 # How many options to remove on first hint
+@export var hint_remove_2 : int  = 3 # How many options to remove on second hint
 
 var translations : Resource # File with the words in for the numbers
 
@@ -106,7 +106,7 @@ func _on_ReadAnswerTimer_timeout():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Updates timer label with time left
-func _process(delta):
+func _process(_delta):
 	timerDisplay.text = "%2.1f" % timer.time_left
 	
 # Called when the score should be adjusted	
@@ -119,7 +119,7 @@ func changeScore(amount):
 func _on_Timer_timeout():
 	timer.stop()
 	hintTimer.stop()
-	get_tree().change_scene("res://GameOver.tscn")
+	get_tree().change_scene_to_file("res://GameOver.tscn")
 
 # Handles timer for hints (when some buttons go blank to reduce
 # possible answers)

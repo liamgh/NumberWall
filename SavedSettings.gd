@@ -3,6 +3,6 @@ extends Resource
 
 class_name SavedSettings
 
-export var language = "es-es"
+@export var language = "es-es"
 
-export var high_scores = {}
+@export var high_scores = {}

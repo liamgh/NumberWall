@@ -1,9 +1,9 @@
 extends Button
 
-onready var button = $"."
+@onready var button = $"."
 
-export var soundOffText = "Sound Off"
-export var soundOnText = "Sound On"
+@export var soundOffText = "Sound Off"
+@export var soundOnText = "Sound On"
 
 
 # Called when the node enters the scene tree for the first time.
